@@ -1,84 +1,40 @@
-/* ====================================
-   LANGUAGE SELECT DROPDOWN
-==================================== */
+/* ==========================================
+   EDUCATION DASHBOARD
+   Main Interactions
+========================================== */
 
-const languageButton = document.querySelector('.language-select');
+document.addEventListener("DOMContentLoaded", () => {
 
-if (languageButton) {
-    languageButton.addEventListener('click', () => {
-        languageButton.classList.toggle('active');
-    });
-}
+    initializeSearch();
+    initializeTeacherCards();
+    initializeScheduleDays();
+    initializeLanguageSelector();
+    initializeCourseMenus();
+    initializeProgressAnimation();
 
-/* ====================================
-   TEACHER SELECTION
-==================================== */
-
-const teacherRows = document.querySelectorAll('.teacher-row');
-
-teacherRows.forEach(row => {
-    row.addEventListener('click', () => {
-
-        teacherRows.forEach(item => {
-            item.classList.remove('active');
-        });
-
-        row.classList.add('active');
-    });
 });
 
-/* ====================================
-   SCHEDULE DATE SELECTION
-==================================== */
+/* ==========================================
+   SEARCH
+========================================== */
+function initializeSearch() {
 
-const scheduleItems = document.querySelectorAll('.schedule-item');
+    const searchInput = document.querySelector(".search-box input");
 
-scheduleItems.forEach(item => {
-    item.addEventListener('click', () => {
+    if (!searchInput) return;
 
-        scheduleItems.forEach(card => {
-            card.classList.remove('selected');
-        });
+    searchInput.addEventListener("input", function () {
 
-        item.classList.add('selected');
-    });
-});
+        const value = this.value.toLowerCase();
 
-/* ====================================
-   BOOK ONLINE BUTTON
-==================================== */
+        document.querySelectorAll(".teacher-card").forEach(card => {
 
-const bookButton = document.querySelector('.book-btn');
+            const name = card.querySelector("h3")?.textContent.toLowerCase() || "";
 
-if (bookButton) {
-    bookButton.addEventListener('click', () => {
-        alert('Session booking request submitted.');
-    });
-}
-
-/* ====================================
-   SEARCH FUNCTIONALITY
-==================================== */
-
-const searchInput = document.querySelector('.search-box input');
-
-if (searchInput) {
-
-    searchInput.addEventListener('keyup', function () {
-
-        const searchValue = this.value.toLowerCase();
-
-        teacherRows.forEach(row => {
-
-            const teacherName = row
-                .querySelector('.teacher-info h3')
-                .textContent
-                .toLowerCase();
-
-            if (teacherName.includes(searchValue)) {
-                row.style.display = 'grid';
+            if (name.includes(value)) {
+                card.style.display = "";
             } else {
-                row.style.display = 'none';
+                card.style.display = "none";
             }
 
         });
@@ -87,117 +43,219 @@ if (searchInput) {
 
 }
 
-/* ====================================
-   COURSE OPTIONS BUTTONS
-==================================== */
+/* ==========================================
+   TEACHER CARD SELECTION
+========================================== */
+function initializeTeacherCards() {
 
-const courseMenuButtons = document.querySelectorAll(
-    '.course-item .more-btn'
-);
+    const teacherCards = document.querySelectorAll(".teacher-card");
 
-courseMenuButtons.forEach(button => {
+    teacherCards.forEach(card => {
 
-    button.addEventListener('click', (e) => {
+        card.addEventListener("click", () => {
 
-        e.stopPropagation();
+            teacherCards.forEach(item =>
+                item.classList.remove("featured")
+            );
 
-        console.log('Course menu clicked');
+            card.classList.add("featured");
+
+        });
 
     });
 
-});
+}
 
-/* ====================================
+/* ==========================================
+   SCHEDULE DAY SELECTOR
+========================================== */
+function initializeScheduleDays() {
+
+    const days = document.querySelectorAll(".schedule-day");
+
+    days.forEach(day => {
+
+        day.addEventListener("click", () => {
+
+            days.forEach(item =>
+                item.classList.remove("active")
+            );
+
+            day.classList.add("active");
+
+        });
+
+    });
+
+}
+
+/* ==========================================
+   LANGUAGE DROPDOWN
+========================================== */
+function initializeLanguageSelector() {
+
+    const selector = document.querySelector(".language-select");
+
+    if (!selector) return;
+
+    const languages = [
+        "English",
+        "Spanish",
+        "French",
+        "German",
+        "Arabic"
+    ];
+
+    let current = 0;
+
+    selector.addEventListener("click", () => {
+
+        current++;
+
+        if (current >= languages.length) {
+            current = 0;
+        }
+
+        selector.querySelector("span").textContent =
+            languages[current];
+
+    });
+
+}
+
+/* ==========================================
+   COURSE OPTIONS
+========================================== */
+function initializeCourseMenus() {
+
+    const buttons = document.querySelectorAll(
+        ".course-item .more-btn"
+    );
+
+    buttons.forEach(button => {
+
+        button.addEventListener("click", (event) => {
+
+            event.stopPropagation();
+
+            console.log(
+                "Course options clicked"
+            );
+
+        });
+
+    });
+
+}
+
+/* ==========================================
    PROGRESS ANIMATION
-==================================== */
+========================================== */
+function initializeProgressAnimation() {
 
-const progressValue = document.querySelector('.progress-value');
+    const progressText =
+        document.querySelector(".progress-text");
 
-if (progressValue) {
+    const progressBar =
+        document.querySelector(".progress-fill");
 
-    let currentValue = 0;
-    const targetValue = 70;
+    const progressCircle =
+        document.querySelector(".progress-value");
 
-    const counter = setInterval(() => {
+    if (
+        !progressText ||
+        !progressBar ||
+        !progressCircle
+    ) return;
 
-        currentValue++;
+    const target = 70;
+    let current = 0;
 
-        progressValue.textContent = currentValue + '%';
+    const radius = 80;
+    const circumference =
+        2 * Math.PI * radius;
 
-        if (currentValue >= targetValue) {
-            clearInterval(counter);
+    progressCircle.style.strokeDasharray =
+        `${circumference}`;
+
+    progressCircle.style.strokeDashoffset =
+        circumference;
+
+    const animation = setInterval(() => {
+
+        current++;
+
+        progressText.textContent =
+            `${current}%`;
+
+        progressBar.style.width =
+            `${current}%`;
+
+        const offset =
+            circumference -
+            (current / 100) * circumference;
+
+        progressCircle.style.strokeDashoffset =
+            offset;
+
+        if (current >= target) {
+            clearInterval(animation);
         }
 
     }, 20);
 
 }
 
-/* ====================================
-   SIDEBAR ACTIVE STATE
-==================================== */
+/* ==========================================
+   BOOK BUTTON
+========================================== */
+const bookButton =
+    document.querySelector(".book-btn");
 
-const navItems = document.querySelectorAll('.nav-item');
+if (bookButton) {
 
-navItems.forEach(item => {
+    bookButton.addEventListener("click", () => {
 
-    item.addEventListener('click', () => {
-
-        navItems.forEach(nav => {
-            nav.classList.remove('active');
-        });
-
-        item.classList.add('active');
+        alert(
+            "Booking functionality can be connected to your backend API."
+        );
 
     });
 
-});
+}
 
-/* ====================================
-   HEADER BUTTON ANIMATIONS
-==================================== */
+/* ==========================================
+   ADD BUTTON
+========================================== */
+const addButton =
+    document.querySelector(".add-btn");
 
-const actionButtons = document.querySelectorAll(
-    '.icon-btn'
-);
+if (addButton) {
 
-actionButtons.forEach(button => {
+    addButton.addEventListener("click", () => {
 
-    button.addEventListener('mouseenter', () => {
-        button.style.transform = 'scale(1.08)';
-    });
-
-    button.addEventListener('mouseleave', () => {
-        button.style.transform = 'scale(1)';
-    });
-
-});
-
-/* ====================================
-   FADE-IN ANIMATION
-==================================== */
-
-window.addEventListener('load', () => {
-
-    const animatedElements = document.querySelectorAll(
-        '.teacher-row, .teacher-card, .course-item, .schedule-item'
-    );
-
-    animatedElements.forEach((element, index) => {
-
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(20px)';
-
-        setTimeout(() => {
-
-            element.style.transition =
-                'all 0.5s ease';
-
-            element.style.opacity = '1';
-            element.style.transform =
-                'translateY(0)';
-
-        }, index * 100);
+        console.log(
+            "Add new course clicked"
+        );
 
     });
 
-});
+}
+
+/* ==========================================
+   NOTIFICATION BUTTON
+========================================== */
+const notificationButton =
+    document.querySelector(".notification-btn");
+
+if (notificationButton) {
+
+    notificationButton.addEventListener("click", () => {
+
+        notificationButton.classList.toggle(
+            "active"
+        );
+
+    });
+
+}
