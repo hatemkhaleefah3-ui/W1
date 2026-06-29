@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Language Learning Dashboard</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- CSS File -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-wrapper">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <span></span>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active">
+                    <i class="fa-solid fa-house"></i>
+                </a>
+
+                <a href="#" class="nav-item">
+                    <i class="fa-regular fa-user"></i>
+                </a>
+
+                <a href="#" class="nav-item">
+                    <i class="fa-regular fa-message"></i>
+                </a>
+
+                <a href="#" class="nav-item">
+                    <i class="fa-regular fa-calendar"></i>
+                </a>
+
+                <a href="#" class="nav-item">
+                    <i class="fa-regular fa-clock"></i>
+                </a>
+
+                <a href="#" class="nav-item">
+                    <i class="fa-solid fa-gear"></i>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Container -->
+        <main class="dashboard-container">
+
+            <!-- Header -->
+            <header class="topbar">
+
+                <h1 class="dashboard-title">Dashboard</h1>
+
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Search">
+                </div>
+
+                <div class="header-actions">
+
+                    <button class="icon-btn add-btn">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+
+                    <button class="icon-btn notification-btn">
+                        <i class="fa-regular fa-bell"></i>
+                        <span class="notification-dot"></span>
+                    </button>
+
+                    <div class="user-profile">
+                        <img src="https://via.placeholder.com/50x50" alt="User">
+                        <span>Hira R</span>
+                    </div>
+
+                </div>
+
+            </header>
+
+            <div class="content-grid">
+
+                <!-- Main Content -->
+                <section class="main-content">
+
+                    <!-- Teachers Section -->
+                    <section class="teachers-section">
+
+                        <div class="section-header">
+                            <h2>Find your teacher</h2>
+
+                            <button class="language-select">
+                                English
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </button>
+                        </div>
+
+                        <div class="teacher-list">
+
+                            <article class="teacher-row">
+                                <div class="teacher-info">
+                                    <img src="https://via.placeholder.com/60" alt="Prof David">
+                                    <h3>Prof. David</h3>
+                                </div>
+
+                                <span>4 hours lecture</span>
+                                <span>$100/hr</span>
+
+                                <button class="more-btn">
+                                    <i class="fa-solid fa-ellipsis"></i>
+                                </button>
+                            </article>
+
+                            <article class="teacher-row active">
+                                <div class="teacher-info">
+                                    <img src="https://via.placeholder.com/60" alt="Prof Lily">
+                                    <h3>Prof. Lily</h3>
+                                </div>
+
+                                <span>2 hours lecture</span>
+                                <span>$120/hr</span>
+
+                                <button class="more-btn">
+                                    <i class="fa-solid fa-ellipsis"></i>
+                                </button>
+                            </article>
+
+                            <article class="teacher-row">
+                                <div class="teacher-info">
+                                    <img src="https://via.placeholder.com/60" alt="Prof Alex">
+                                    <h3>Prof. Alex</h3>
+                                </div>
+
+                                <span>4 hours lecture</span>
+                                <span>$150/hr</span>
+
+                                <button class="more-btn">
+                                    <i class="fa-solid fa-ellipsis"></i>
+                                </button>
+                            </article>
+
+                        </div>
+
+                    </section>
+
+                    <!-- Schedule -->
+                    <section class="schedule-section">
+
+                        <div class="schedule-header">
+                            <h2>Schedule</h2>
+
+                            <div class="schedule-filter">
+                                <span>Oct 08, 2020</span>
+
+                                <button class="teacher-dropdown">
+                                    Prof Lily
+                                    <i class="fa-solid fa-chevron-down"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="schedule-grid">
+
+                            <!-- Teacher Card -->
+                            <div class="teacher-card">
+
+                                <img src="https://via.placeholder.com/120" alt="Prof Lily">
+
+                                <h3>Prof. Lily</h3>
+
+                                <p>5 years Experience</p>
+                                <p>Master's in Language</p>
+
+                                <button class="book-btn">
+                                    Book Online
+                                </button>
+
+                            </div>
+
+                            <!-- Schedule Items -->
+                            <div class="schedule-list">
+
+                                <div class="schedule-item">
+                                    <div class="date-card">
+                                        <span class="date-number">12</span>
+
+                                        <div>
+                                            <p>Dec</p>
+                                            <h4>Monday</h4>
+                                        </div>
+                                    </div>
+
+                                    <span class="time">10:00am-12:00pm</span>
+                                </div>
+
+                                <div class="schedule-item selected">
+                                    <div class="date-card">
+                                        <span class="date-number">13</span>
+
+                                        <div>
+                                            <p>Dec</p>
+                                            <h4>Tuesday</h4>
+                                        </div>
+                                    </div>
+
+                                    <span class="time">02:00pm-04:00pm</span>
+                                </div>
+
+                                <div class="schedule-item">
+                                    <div class="date-card">
+                                        <span class="date-number">14</span>
+
+                                        <div>
+                                            <p>Dec</p>
+                                            <h4>Wednesday</h4>
+                                        </div>
+                                    </div>
+
+                                    <span class="time">08:00am-10:00am</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+                </section>
+
+                <!-- Right Sidebar -->
+                <aside class="right-panel">
+
+                    <!-- Courses -->
+                    <section class="courses-card">
+
+                        <h2>My Courses</h2>
+
+                        <div class="course-item">
+                            <div class="course-icon">
+                                <i class="fa-solid fa-language"></i>
+                            </div>
+
+                            <div>
+                                <h4>English</h4>
+                                <p>20 Hours</p>
+                            </div>
+
+                            <button class="more-btn">
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </button>
+                        </div>
+
+                        <div class="course-item">
+                            <div class="course-icon">
+                                <i class="fa-solid fa-comments"></i>
+                            </div>
+
+                            <div>
+                                <h4>Spoken course</h4>
+                                <p>40 Hour</p>
+                            </div>
+
+                            <button class="more-btn">
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </button>
+                        </div>
+
+                        <div class="course-item">
+                            <div class="course-icon">
+                                <i class="fa-solid fa-book-open"></i>
+                            </div>
+
+                            <div>
+                                <h4>Writing course</h4>
+                                <p>20 Hour</p>
+                            </div>
+
+                            <button class="more-btn">
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </button>
+                        </div>
+
+                        <div class="course-item">
+                            <div class="course-icon">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                            </div>
+
+                            <div>
+                                <h4>Language course</h4>
+                                <p>20 Hour</p>
+                            </div>
+
+                            <button class="more-btn">
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </button>
+                        </div>
+
+                    </section>
+
+                    <!-- Progress -->
+                    <section class="progress-card">
+
+                        <h2>Account Progress</h2>
+
+                        <div class="progress-circle">
+                            <div class="progress-value">70%</div>
+                        </div>
+
+                        <div class="progress-bar">
+                            <div class="progress-fill"></div>
+                        </div>
+
+                    </section>
+
+                </aside>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
