@@ -1,261 +1,222 @@
 /* ==========================================
-   EDUCATION DASHBOARD
-   Main Interactions
+   ONLINEEDU - MAIN JAVASCRIPT
 ========================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    initializeSearch();
-    initializeTeacherCards();
-    initializeScheduleDays();
-    initializeLanguageSelector();
-    initializeCourseMenus();
-    initializeProgressAnimation();
+    /* ==========================================
+       MOBILE MENU
+    ========================================== */
 
-});
+    const menuButton = document.querySelector(".mobile-menu-btn");
+    const navMenu = document.querySelector(".nav-menu");
 
-/* ==========================================
-   SEARCH
-========================================== */
-function initializeSearch() {
+    if (menuButton && navMenu) {
 
-    const searchInput = document.querySelector(".search-box input");
+        menuButton.addEventListener("click", () => {
 
-    if (!searchInput) return;
+            navMenu.classList.toggle("mobile-active");
 
-    searchInput.addEventListener("input", function () {
+            if (navMenu.classList.contains("mobile-active")) {
 
-        const value = this.value.toLowerCase();
+                navMenu.style.display = "block";
 
-        document.querySelectorAll(".teacher-card").forEach(card => {
-
-            const name = card.querySelector("h3")?.textContent.toLowerCase() || "";
-
-            if (name.includes(value)) {
-                card.style.display = "";
             } else {
-                card.style.display = "none";
+
+                navMenu.style.display = "";
+
             }
-
         });
+    }
 
-    });
+    /* ==========================================
+       COUNTER ANIMATION
+    ========================================== */
 
-}
+    const counters = document.querySelectorAll(".counter");
 
-/* ==========================================
-   TEACHER CARD SELECTION
-========================================== */
-function initializeTeacherCards() {
+    const startCounter = (counter) => {
 
-    const teacherCards = document.querySelectorAll(".teacher-card");
+        const target = Number(counter.dataset.target);
+        const duration = 2000;
 
-    teacherCards.forEach(card => {
+        let start = 0;
+        const increment = target / (duration / 16);
 
-        card.addEventListener("click", () => {
+        const updateCounter = () => {
 
-            teacherCards.forEach(item =>
-                item.classList.remove("featured")
-            );
+            start += increment;
 
-            card.classList.add("featured");
+            if (start < target) {
 
-        });
+                counter.textContent = Math.floor(start);
 
-    });
+                requestAnimationFrame(updateCounter);
 
-}
+            } else {
 
-/* ==========================================
-   SCHEDULE DAY SELECTOR
-========================================== */
-function initializeScheduleDays() {
+                counter.textContent = target.toLocaleString();
+            }
+        };
 
-    const days = document.querySelectorAll(".schedule-day");
+        updateCounter();
+    };
 
-    days.forEach(day => {
+    const counterObserver = new IntersectionObserver(
+        (entries, observer) => {
 
-        day.addEventListener("click", () => {
+            entries.forEach((entry) => {
 
-            days.forEach(item =>
-                item.classList.remove("active")
-            );
+                if (entry.isIntersecting) {
 
-            day.classList.add("active");
+                    startCounter(entry.target);
 
-        });
-
-    });
-
-}
-
-/* ==========================================
-   LANGUAGE DROPDOWN
-========================================== */
-function initializeLanguageSelector() {
-
-    const selector = document.querySelector(".language-select");
-
-    if (!selector) return;
-
-    const languages = [
-        "English",
-        "Spanish",
-        "French",
-        "German",
-        "Arabic"
-    ];
-
-    let current = 0;
-
-    selector.addEventListener("click", () => {
-
-        current++;
-
-        if (current >= languages.length) {
-            current = 0;
+                    observer.unobserve(entry.target);
+                }
+            });
+        },
+        {
+            threshold: 0.4
         }
-
-        selector.querySelector("span").textContent =
-            languages[current];
-
-    });
-
-}
-
-/* ==========================================
-   COURSE OPTIONS
-========================================== */
-function initializeCourseMenus() {
-
-    const buttons = document.querySelectorAll(
-        ".course-item .more-btn"
     );
 
-    buttons.forEach(button => {
+    counters.forEach(counter => {
+        counterObserver.observe(counter);
+    });
 
-        button.addEventListener("click", (event) => {
+    /* ==========================================
+       SCROLL REVEAL ANIMATION
+    ========================================== */
 
-            event.stopPropagation();
+    const revealElements = document.querySelectorAll(
+        ".feature-card, .teacher-card, .stat-box, .about-content, .about-images"
+    );
 
-            console.log(
-                "Course options clicked"
-            );
+    revealElements.forEach((element) => {
+        element.style.opacity = "0";
+        element.style.transform = "translateY(40px)";
+        element.style.transition =
+            "opacity 0.8s ease, transform 0.8s ease";
+    });
 
+    const revealObserver = new IntersectionObserver(
+        (entries) => {
+
+            entries.forEach((entry) => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform = "translateY(0)";
+                }
+            });
+        },
+        {
+            threshold: 0.15
+        }
+    );
+
+    revealElements.forEach((element) => {
+        revealObserver.observe(element);
+    });
+
+    /* ==========================================
+       ACTIVE NAV LINK ON SCROLL
+    ========================================== */
+
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll(".nav-menu a");
+
+    const activateMenu = () => {
+
+        let currentSection = "";
+
+        sections.forEach((section) => {
+
+            const sectionTop = section.offsetTop - 120;
+            const sectionHeight = section.offsetHeight;
+
+            if (
+                window.scrollY >= sectionTop &&
+                window.scrollY < sectionTop + sectionHeight
+            ) {
+                currentSection = section.getAttribute("id");
+            }
         });
 
-    });
+        navLinks.forEach((link) => {
 
-}
+            link.classList.remove("active");
 
-/* ==========================================
-   PROGRESS ANIMATION
-========================================== */
-function initializeProgressAnimation() {
+            const href = link.getAttribute("href");
 
-    const progressText =
-        document.querySelector(".progress-text");
+            if (
+                href &&
+                href.includes("#") &&
+                href.substring(1) === currentSection
+            ) {
+                link.classList.add("active");
+            }
+        });
+    };
 
-    const progressBar =
-        document.querySelector(".progress-fill");
+    window.addEventListener("scroll", activateMenu);
 
-    const progressCircle =
-        document.querySelector(".progress-value");
+    /* ==========================================
+       HEADER SHADOW ON SCROLL
+    ========================================== */
 
-    if (
-        !progressText ||
-        !progressBar ||
-        !progressCircle
-    ) return;
+    const header = document.querySelector(".header");
 
-    const target = 70;
-    let current = 0;
+    window.addEventListener("scroll", () => {
 
-    const radius = 80;
-    const circumference =
-        2 * Math.PI * radius;
+        if (!header) return;
 
-    progressCircle.style.strokeDasharray =
-        `${circumference}`;
+        if (window.scrollY > 30) {
 
-    progressCircle.style.strokeDashoffset =
-        circumference;
+            header.style.boxShadow =
+                "0 8px 30px rgba(0,0,0,.08)";
 
-    const animation = setInterval(() => {
+        } else {
 
-        current++;
-
-        progressText.textContent =
-            `${current}%`;
-
-        progressBar.style.width =
-            `${current}%`;
-
-        const offset =
-            circumference -
-            (current / 100) * circumference;
-
-        progressCircle.style.strokeDashoffset =
-            offset;
-
-        if (current >= target) {
-            clearInterval(animation);
+            header.style.boxShadow =
+                "0 2px 20px rgba(0,0,0,.04)";
         }
-
-    }, 20);
-
-}
-
-/* ==========================================
-   BOOK BUTTON
-========================================== */
-const bookButton =
-    document.querySelector(".book-btn");
-
-if (bookButton) {
-
-    bookButton.addEventListener("click", () => {
-
-        alert(
-            "Booking functionality can be connected to your backend API."
-        );
-
     });
 
-}
+    /* ==========================================
+       SMOOTH SCROLL FOR INTERNAL LINKS
+    ========================================== */
 
-/* ==========================================
-   ADD BUTTON
-========================================== */
-const addButton =
-    document.querySelector(".add-btn");
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
 
-if (addButton) {
+        link.addEventListener("click", (e) => {
 
-    addButton.addEventListener("click", () => {
+            const targetId = link.getAttribute("href");
 
-        console.log(
-            "Add new course clicked"
-        );
+            if (targetId === "#") return;
 
+            const targetElement =
+                document.querySelector(targetId);
+
+            if (!targetElement) return;
+
+            e.preventDefault();
+
+            targetElement.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
+            if (
+                navMenu &&
+                navMenu.classList.contains("mobile-active")
+            ) {
+
+                navMenu.classList.remove("mobile-active");
+                navMenu.style.display = "";
+            }
+        });
     });
 
-}
-
-/* ==========================================
-   NOTIFICATION BUTTON
-========================================== */
-const notificationButton =
-    document.querySelector(".notification-btn");
-
-if (notificationButton) {
-
-    notificationButton.addEventListener("click", () => {
-
-        notificationButton.classList.toggle(
-            "active"
-        );
-
-    });
-
-}
+});
