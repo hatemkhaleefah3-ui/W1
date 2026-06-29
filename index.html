@@ -1,397 +1,412 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Education Dashboard</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About | OnlineEdu</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
-    <!-- CSS File -->
-    <link rel="stylesheet" href="css/style.css" />
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-    <div class="dashboard-wrapper">
+    <!-- ================= HEADER ================= -->
 
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <div class="sidebar-top">
-                <button class="menu-btn">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
-            </div>
+    <header class="header">
 
-            <nav class="sidebar-nav">
-                <a href="#" class="nav-item active">
-                    <i class="fa-solid fa-house"></i>
-                </a>
+        <div class="top-bar">
 
-                <a href="#" class="nav-item">
-                    <i class="fa-regular fa-user"></i>
-                </a>
+            <div class="container">
 
-                <a href="#" class="nav-item">
-                    <i class="fa-regular fa-message"></i>
-                </a>
+                <div class="top-left">
+                    <span><i class="fa-solid fa-location-dot"></i> 123 Education Street</span>
 
-                <a href="#" class="nav-item">
-                    <i class="fa-regular fa-calendar"></i>
-                </a>
+                    <span>
+                        <i class="fa-solid fa-phone"></i>
+                        +1 234 567 890
+                    </span>
 
-                <a href="#" class="nav-item">
-                    <i class="fa-regular fa-clock"></i>
-                </a>
+                    <span>
+                        <i class="fa-solid fa-envelope"></i>
+                        info@example.com
+                    </span>
 
-                <a href="#" class="nav-item">
-                    <i class="fa-solid fa-gear"></i>
-                </a>
-            </nav>
-        </aside>
-
-        <!-- Main Content -->
-        <main class="dashboard-content">
-
-            <!-- Header -->
-            <header class="dashboard-header">
-
-                <h1 class="logo-title">Dashboard</h1>
-
-                <div class="search-box">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <input
-                        type="text"
-                        placeholder="Search"
-                    />
                 </div>
 
-                <div class="header-actions">
+                <div class="top-right">
 
-                    <button class="icon-circle add-btn">
-                        <i class="fa-solid fa-plus"></i>
-                    </button>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
 
-                    <button class="notification-btn">
-                        <i class="fa-regular fa-bell"></i>
-                        <span class="notification-dot"></span>
-                    </button>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
 
-                    <div class="user-profile">
-                        <img
-                            src="https://via.placeholder.com/60"
-                            alt="User"
-                        />
-                        <span>Hira R</span>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <nav class="navbar">
+
+            <div class="container">
+
+                <a href="index.html" class="logo">
+
+                    <img src="images/logo.png" alt="Logo">
+
+                </a>
+
+                <ul class="nav-links">
+
+                    <li><a href="index.html">Home</a></li>
+
+                    <li><a href="#">Courses</a></li>
+
+                    <li><a href="#">Events</a></li>
+
+                    <li><a href="#">Pages</a></li>
+
+                    <li><a href="#">Blog</a></li>
+
+                    <li><a href="about.html" class="active">About</a></li>
+
+                    <li><a href="#">Contact</a></li>
+
+                </ul>
+
+                <button class="menu-btn">
+
+                    <i class="fa-solid fa-bars"></i>
+
+                </button>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+    <!-- ================= PAGE HERO ================= -->
+
+    <section class="page-hero">
+
+        <div class="overlay"></div>
+
+        <div class="container">
+
+            <h1>About Us</h1>
+
+            <nav class="breadcrumb">
+
+                <a href="index.html">Home</a>
+
+                <span>/</span>
+
+                <span>About</span>
+
+            </nav>
+
+        </div>
+
+    </section>
+
+    <!-- ================= ABOUT ================= -->
+
+    <section class="about section">
+
+        <div class="container about-grid">
+
+            <div class="about-images">
+
+                <img src="images/about-1.jpg" alt="About">
+
+                <img src="images/about-2.jpg" alt="Students">
+
+            </div>
+
+            <div class="about-content">
+
+                <span class="subtitle">
+                    About Our University
+                </span>
+
+                <h2>
+                    Learn New Skills To Go Ahead For Your Career.
+                </h2>
+
+                <p>
+
+                    Replace this content with your own text. This section recreates
+                    the Colorlib layout and contains a two-column responsive design.
+
+                </p>
+
+                <div class="features">
+
+                    <div class="feature">
+
+                        <i class="fa-solid fa-graduation-cap"></i>
+
+                        <div>
+
+                            <h4>Qualified Teachers</h4>
+
+                            <p>Experienced professionals.</p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="feature">
+
+                        <i class="fa-solid fa-book-open"></i>
+
+                        <div>
+
+                            <h4>Modern Courses</h4>
+
+                            <p>Latest educational content.</p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="feature">
+
+                        <i class="fa-solid fa-laptop"></i>
+
+                        <div>
+
+                            <h4>Online Learning</h4>
+
+                            <p>Accessible everywhere.</p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="feature">
+
+                        <i class="fa-solid fa-certificate"></i>
+
+                        <div>
+
+                            <h4>Certification</h4>
+
+                            <p>Industry-recognized certificates.</p>
+
+                        </div>
+
                     </div>
 
                 </div>
 
-            </header>
-
-            <!-- Main Layout -->
-            <div class="content-grid">
-
-                <!-- Left Side -->
-                <section class="left-content">
-
-                    <!-- Teachers -->
-                    <section class="teachers-section">
-
-                        <div class="section-header">
-                            <h2>Find your teacher</h2>
-
-                            <div class="language-select">
-                                <span>English</span>
-                                <i class="fa-solid fa-chevron-down"></i>
-                            </div>
-                        </div>
-
-                        <div class="teacher-list">
-
-                            <article class="teacher-card">
-
-                                <div class="teacher-info">
-                                    <img src="https://via.placeholder.com/80" alt="Teacher">
-                                    <h3>Prof. David</h3>
-                                </div>
-
-                                <div class="teacher-hours">
-                                    4 hours lecture
-                                </div>
-
-                                <div class="teacher-price">
-                                    $100/hr
-                                </div>
-
-                                <button class="more-btn">
-                                    <i class="fa-solid fa-ellipsis"></i>
-                                </button>
-
-                            </article>
-
-                            <article class="teacher-card featured">
-
-                                <div class="teacher-info">
-                                    <img src="https://via.placeholder.com/80" alt="Teacher">
-                                    <h3>Prof. Lily</h3>
-                                </div>
-
-                                <div class="teacher-hours">
-                                    2 hours lecture
-                                </div>
-
-                                <div class="teacher-price">
-                                    $120/hr
-                                </div>
-
-                                <button class="more-btn">
-                                    <i class="fa-solid fa-ellipsis"></i>
-                                </button>
-
-                            </article>
-
-                            <article class="teacher-card">
-
-                                <div class="teacher-info">
-                                    <img src="https://via.placeholder.com/80" alt="Teacher">
-                                    <h3>Prof. Alex</h3>
-                                </div>
-
-                                <div class="teacher-hours">
-                                    4 hours lecture
-                                </div>
-
-                                <div class="teacher-price">
-                                    $150/hr
-                                </div>
-
-                                <button class="more-btn">
-                                    <i class="fa-solid fa-ellipsis"></i>
-                                </button>
-
-                            </article>
-
-                        </div>
-
-                    </section>
-
-                    <!-- Schedule -->
-                    <section class="schedule-section">
-
-                        <div class="schedule-header">
-                            <h2>Schedule</h2>
-
-                            <div class="schedule-controls">
-
-                                <span class="schedule-date">
-                                    Oct 08, 2020
-                                </span>
-
-                                <button class="teacher-filter">
-                                    Prof Lily
-                                    <i class="fa-solid fa-chevron-down"></i>
-                                </button>
-
-                            </div>
-
-                        </div>
-
-                        <div class="schedule-layout">
-
-                            <!-- Teacher Profile -->
-                            <div class="schedule-profile">
-
-                                <img
-                                    src="https://via.placeholder.com/120"
-                                    alt="Prof Lily"
-                                >
-
-                                <h3>Prof. Lily</h3>
-
-                                <p>5 years Experience</p>
-
-                                <p>Master's in Language</p>
-
-                                <button class="book-btn">
-                                    Book Online
-                                </button>
-
-                            </div>
-
-                            <!-- Schedule Days -->
-                            <div class="schedule-days">
-
-                                <div class="schedule-day">
-                                    <div class="day-number">12</div>
-
-                                    <div class="day-info">
-                                        <span>Dec</span>
-                                        <strong>Monday</strong>
-                                    </div>
-                                </div>
-
-                                <div class="schedule-day active">
-                                    <div class="day-number">13</div>
-
-                                    <div class="day-info">
-                                        <span>Dec</span>
-                                        <strong>Tuesday</strong>
-                                    </div>
-                                </div>
-
-                                <div class="schedule-day">
-                                    <div class="day-number">14</div>
-
-                                    <div class="day-info">
-                                        <span>Dec</span>
-                                        <strong>Wednesday</strong>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <!-- Time Slots -->
-                            <div class="schedule-times">
-
-                                <div class="time-slot">
-                                    10:00am-12:00pm
-                                </div>
-
-                                <div class="time-slot">
-                                    02:00pm-04:00pm
-                                </div>
-
-                                <div class="time-slot">
-                                    08:00am-10:00am
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </section>
-
-                </section>
-
-                <!-- Right Sidebar -->
-                <aside class="right-panel">
-
-                    <!-- Courses -->
-                    <section class="courses-section">
-
-                        <h2>My Courses</h2>
-
-                        <div class="course-list">
-
-                            <article class="course-item">
-                                <div class="course-icon">
-                                    <i class="fa-solid fa-language"></i>
-                                </div>
-
-                                <div class="course-content">
-                                    <h4>English</h4>
-                                    <p>20 Hours</p>
-                                </div>
-
-                                <button class="more-btn">
-                                    <i class="fa-solid fa-ellipsis-vertical"></i>
-                                </button>
-                            </article>
-
-                            <article class="course-item">
-                                <div class="course-icon">
-                                    <i class="fa-solid fa-comments"></i>
-                                </div>
-
-                                <div class="course-content">
-                                    <h4>Spoken course</h4>
-                                    <p>40 Hour</p>
-                                </div>
-
-                                <button class="more-btn">
-                                    <i class="fa-solid fa-ellipsis-vertical"></i>
-                                </button>
-                            </article>
-
-                            <article class="course-item">
-                                <div class="course-icon">
-                                    <i class="fa-solid fa-book-open"></i>
-                                </div>
-
-                                <div class="course-content">
-                                    <h4>Writing course</h4>
-                                    <p>20 Hour</p>
-                                </div>
-
-                                <button class="more-btn">
-                                    <i class="fa-solid fa-ellipsis-vertical"></i>
-                                </button>
-                            </article>
-
-                            <article class="course-item">
-                                <div class="course-icon">
-                                    <i class="fa-solid fa-graduation-cap"></i>
-                                </div>
-
-                                <div class="course-content">
-                                    <h4>Language course</h4>
-                                    <p>20 Hour</p>
-                                </div>
-
-                                <button class="more-btn">
-                                    <i class="fa-solid fa-ellipsis-vertical"></i>
-                                </button>
-                            </article>
-
-                        </div>
-
-                    </section>
-
-                    <!-- Progress -->
-                    <section class="progress-section">
-
-                        <h2>Account Progress</h2>
-
-                        <div class="progress-circle">
-
-                            <svg viewBox="0 0 220 220">
-                                <circle
-                                    class="progress-bg"
-                                    cx="110"
-                                    cy="110"
-                                    r="80"
-                                ></circle>
-
-                                <circle
-                                    class="progress-value"
-                                    cx="110"
-                                    cy="110"
-                                    r="80"
-                                ></circle>
-                            </svg>
-
-                            <div class="progress-text">
-                                70%
-                            </div>
-
-                        </div>
-
-                        <div class="progress-bar">
-                            <div class="progress-fill"></div>
-                        </div>
-
-                    </section>
-
-                </aside>
+                <a href="#" class="btn">
+                    Discover More
+                </a>
 
             </div>
 
-        </main>
+        </div>
 
-    </div>
+    </section>
 
-    <script src="js/script.js"></script>
+    <!-- ================= COUNTERS ================= -->
+
+    <section class="stats">
+
+        <div class="container stats-grid">
+
+            <div class="stat">
+
+                <h3 data-count="1500">0</h3>
+
+                <p>Students</p>
+
+            </div>
+
+            <div class="stat">
+
+                <h3 data-count="320">0</h3>
+
+                <p>Courses</p>
+
+            </div>
+
+            <div class="stat">
+
+                <h3 data-count="90">0</h3>
+
+                <p>Teachers</p>
+
+            </div>
+
+            <div class="stat">
+
+                <h3 data-count="40">0</h3>
+
+                <p>Awards</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= TEAM ================= -->
+
+    <section class="team section">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <span>Our Team</span>
+
+                <h2>Meet Our Teachers</h2>
+
+            </div>
+
+            <div class="team-grid">
+
+                <article class="teacher">
+
+                    <img src="images/team-1.jpg" alt="Teacher">
+
+                    <h3>Teacher Name</h3>
+
+                    <span>Professor</span>
+
+                </article>
+
+                <article class="teacher">
+
+                    <img src="images/team-2.jpg" alt="Teacher">
+
+                    <h3>Teacher Name</h3>
+
+                    <span>Professor</span>
+
+                </article>
+
+                <article class="teacher">
+
+                    <img src="images/team-3.jpg" alt="Teacher">
+
+                    <h3>Teacher Name</h3>
+
+                    <span>Professor</span>
+
+                </article>
+
+                <article class="teacher">
+
+                    <img src="images/team-4.jpg" alt="Teacher">
+
+                    <h3>Teacher Name</h3>
+
+                    <span>Professor</span>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= CTA ================= -->
+
+    <section class="cta">
+
+        <div class="container">
+
+            <h2>
+                Ready To Start Learning?
+            </h2>
+
+            <a href="#" class="btn">
+                Join Now
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        <div class="container footer-grid">
+
+            <div>
+
+                <img src="images/logo-light.png" alt="Logo">
+
+                <p>
+
+                    Placeholder footer content.
+
+                </p>
+
+            </div>
+
+            <div>
+
+                <h4>Quick Links</h4>
+
+                <ul>
+
+                    <li><a href="#">Home</a></li>
+
+                    <li><a href="#">Courses</a></li>
+
+                    <li><a href="#">Blog</a></li>
+
+                    <li><a href="#">Contact</a></li>
+
+                </ul>
+
+            </div>
+
+            <div>
+
+                <h4>Contact</h4>
+
+                <p>123 Education Street</p>
+
+                <p>info@example.com</p>
+
+                <p>+1 234 567 890</p>
+
+            </div>
+
+        </div>
+
+        <div class="copyright">
+
+            © 2026 OnlineEdu. All Rights Reserved.
+
+        </div>
+
+    </footer>
+
+    <script src="js/main.js"></script>
 
 </body>
+
 </html>
